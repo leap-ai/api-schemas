@@ -32,19 +32,13 @@ jobs:
       - name: Install dependencies with Bun
         run: bun install
 
+      - name: Setup .npmrc
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ${{ github.workspace }}/.npmrc
+          echo "access=restricted" >> ${{ github.workspace }}/.npmrc
+
       - name: Semantic Release (Bump, Tag, Release)
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Echo NPM Token
-        run: echo $NODE_AUTH_TOKEN
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        if: always()
-
-      - name: Publish to npm
-        run: npm publish --access restricted
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
