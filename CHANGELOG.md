@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/leap-ai/api-schemas/compare/v1.0.3...v1.0.4) (2024-03-08)
+
+
+### Bug Fixes
+
+* export all utils and refactor a little ([d6d835f](https://github.com/leap-ai/api-schemas/commit/d6d835fa0f0ee30ad025d41a482abe9424f687c3))
+
 ## [1.0.3](https://github.com/leap-ai/api-schemas/compare/v1.0.2...v1.0.3) (2024-03-08)
 
 
