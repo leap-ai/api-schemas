@@ -9,9 +9,9 @@ describe("BulkRunZodSchema validation", () => {
     workflow_id: "789",
     status: "completed",
     input_csv_url: "https://example.com",
+    output_csv_url: "https://example.com/output.csv",
     error: null,
     row_count: 100,
-    output: "Some output",
   };
 
   it("should validate correctly with a fully valid object", () => {
@@ -38,6 +38,33 @@ describe("BulkRunZodSchema validation", () => {
     const invalidStatusObject = {
       ...validObject,
       status: "processing", // Invalid status
+    };
+    const validationResult = validateObjectAgainstSchema(
+      invalidStatusObject,
+      BulkRunZodApiSchema
+    );
+    expect(validationResult.valid).toBe(false);
+  });
+
+  it("should validate correctly that status is one of 'completed', 'running', 'failed'", () => {
+    const statuses = ["completed", "running", "failed"];
+    statuses.forEach((status) => {
+      const statusObject = {
+        ...validObject,
+        status: status,
+      };
+      const validationResult = validateObjectAgainstSchema(
+        statusObject,
+        BulkRunZodApiSchema
+      );
+      expect(validationResult.valid).toBe(true);
+    });
+  });
+
+  it("should fail validation if status is not one of 'completed', 'running', 'failed'", () => {
+    const invalidStatusObject = {
+      ...validObject,
+      status: "invalid_status", // Not a valid status
     };
     const validationResult = validateObjectAgainstSchema(
       invalidStatusObject,
@@ -92,5 +119,53 @@ describe("BulkRunZodSchema validation", () => {
       BulkRunZodApiSchema
     );
     expect(validationResult.valid).toBe(true);
+  });
+
+  it("should validate correctly with a valid output_csv_url", () => {
+    const validOutputCsvUrlObject = {
+      ...validObject,
+      output_csv_url: "https://example.com/valid_output.csv", // Valid output_csv_url
+    };
+    const validationResult = validateObjectAgainstSchema(
+      validOutputCsvUrlObject,
+      BulkRunZodApiSchema
+    );
+    expect(validationResult.valid).toBe(true);
+  });
+
+  it("should fail validation with an invalid output_csv_url", () => {
+    const invalidOutputCsvUrlObject = {
+      ...validObject,
+      output_csv_url: "not a valid url", // Invalid output_csv_url
+    };
+    const validationResult = validateObjectAgainstSchema(
+      invalidOutputCsvUrlObject,
+      BulkRunZodApiSchema
+    );
+    expect(validationResult.valid).toBe(false);
+  });
+
+  it("should validate correctly with a valid input_csv_url", () => {
+    const validInputCsvUrlObject = {
+      ...validObject,
+      input_csv_url: "https://example.com/valid_input.csv", // Valid input_csv_url
+    };
+    const validationResult = validateObjectAgainstSchema(
+      validInputCsvUrlObject,
+      BulkRunZodApiSchema
+    );
+    expect(validationResult.valid).toBe(true);
+  });
+
+  it("should fail validation with an invalid input_csv_url", () => {
+    const invalidInputCsvUrlObject = {
+      ...validObject,
+      input_csv_url: "not a valid url", // Invalid input_csv_url
+    };
+    const validationResult = validateObjectAgainstSchema(
+      invalidInputCsvUrlObject,
+      BulkRunZodApiSchema
+    );
+    expect(validationResult.valid).toBe(false);
   });
 });

@@ -9,10 +9,10 @@ export const BulkRunZodApiSchema = z.object({
   version_id: z.string(),
   workflow_id: z.string(),
   status: z.enum(["completed", "running", "failed"]),
-  input_csv_url: z.string(),
+  input_csv_url: z.string().url(),
+  output_csv_url: z.string().url().nullable(),
   error: z.string().nullable(),
   row_count: z.number().positive(),
-  output: z.any(),
 });
 
 export type BulkRunApiType = z.infer<typeof BulkRunZodApiSchema>;
