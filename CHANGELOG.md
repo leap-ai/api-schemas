@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/leap-ai/api-schemas/compare/v1.0.4...v1.0.5) (2024-03-08)
+
+
+### Bug Fixes
+
+* update any to unknown ([2cc425a](https://github.com/leap-ai/api-schemas/commit/2cc425a8e0ceaf0259d312444e9afe14eb5dd6e0))
+
 ## [1.0.4](https://github.com/leap-ai/api-schemas/compare/v1.0.3...v1.0.4) (2024-03-08)
 
 
