@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/leap-ai/api-schemas/compare/v1.0.1...v1.0.2) (2024-03-08)
+
+
+### Bug Fixes
+
+* allow publishing to npm but privately ([bf1552e](https://github.com/leap-ai/api-schemas/commit/bf1552ed4f55b4d2c4464d6e19809fbf980c3436))
+
 ## [1.0.1](https://github.com/leap-ai/api-schemas/compare/v1.0.0...v1.0.1) (2024-03-08)
 
 
