@@ -20,7 +20,8 @@
       {
         "npmPublish": true,
         "tarballDir": "dist",
-        "pkgRoot": "."
+        "pkgRoot": ".",
+        "access": "restricted"
       }
     ]
   ]
