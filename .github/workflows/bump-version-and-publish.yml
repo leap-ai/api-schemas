@@ -1,0 +1,39 @@
+name: Bump, Tag, Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  github-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Setup Bun
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo "$HOME/.bun" >> $GITHUB_PATH
+
+      - name: Install dependencies with Bun
+        run: bun install
+
+      - name: Semantic Release (Bump, Tag, Release)
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Publish to npm with Bun
+        run: bun publish --access restricted
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
