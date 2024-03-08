@@ -1,0 +1,33 @@
+# My TypeScript Library
+
+This repository contains a TypeScript library designed to provide utility functions and Zod schemas for data validation. The source code is written in TypeScript and needs to be compiled to JavaScript before use.
+
+## Getting Started
+
+To get started with this library, you will need Node.js and bun installed on your machine.
+
+### Installation
+
+Clone the repository and install its dependencies:
+
+```bash
+bun install
+```
+
+### Building the Project
+
+This project is written in TypeScript and must be compiled to JavaScript before it can be used. We do not commit the compiled lib directory to Git to avoid merge conflicts and keep the repository size manageable. To compile the source code to JavaScript, run:
+
+```bash
+bun run build
+```
+
+This command compiles the TypeScript files in the src directory and outputs the JavaScript files to the lib directory.
+
+### Contributing
+
+If you're interested in contributing to this library, please make sure to compile the TypeScript code and test your changes before submitting a pull request. Here's how you can do so:
+
+1. Make your changes in the src directory.
+2. Run `bun run build` to compile your changes.
+3. Run `bun test` to ensure your changes do not break existing functionality.
