@@ -15,10 +15,8 @@ export const WorkflowRunZodApiSchema = z.object({
   ended_at: z.string().nullable(),
   workflow_id: z.string(),
   error: z.string().nullable(),
-  input: z.record(z.string(), z.any()).nullable(),
+  input: z.record(z.string(), z.unknown()).nullable(),
   output: z.unknown().nullable(),
 });
 
 export type WorkflowRunApiType = z.infer<typeof WorkflowRunZodApiSchema>;
-
-// Make name of export more specific
