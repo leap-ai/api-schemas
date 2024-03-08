@@ -24,7 +24,12 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install dependencies
+      - name: Setup Bun
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo "$HOME/.bun/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies with Bun
         run: bun install
 
       - name: Semantic Release (Bump, Tag, Release)
@@ -32,7 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - name: Publish to npm
+      - name: Publish to npm with Bun
         run: bun publish --access restricted
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
