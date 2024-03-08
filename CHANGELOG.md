@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/leap-ai/api-schemas/compare/v1.0.2...v1.0.3) (2024-03-08)
+
+
+### Bug Fixes
+
+* fix column names for input and output csv ([7803132](https://github.com/leap-ai/api-schemas/commit/7803132197f7077feb851064d25a7eae67294a84))
+
 ## [1.0.2](https://github.com/leap-ai/api-schemas/compare/v1.0.1...v1.0.2) (2024-03-08)
 
 
