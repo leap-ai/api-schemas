@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/leap-ai/api-schemas/compare/v1.0.5...v1.0.6) (2024-03-13)
+
+
+### Bug Fixes
+
+* add more statuses ([93628cc](https://github.com/leap-ai/api-schemas/commit/93628cc2aeaf95fe2dd0bb5430e35b0ab094b1c9))
+
 ## [1.0.5](https://github.com/leap-ai/api-schemas/compare/v1.0.4...v1.0.5) (2024-03-08)
 
 
