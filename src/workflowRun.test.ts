@@ -43,10 +43,25 @@ describe("WorkflowRunZodSchema validation", () => {
     expect(validationResult.valid).toBe(false);
   });
 
+  it("should validate correctly with valid statuses including 'queued' and 'cancelled'", () => {
+    const validStatuses = ["completed", "processing", "queued", "cancelled"];
+    validStatuses.forEach((status) => {
+      const statusObject = {
+        ...validWorkflowRunObject,
+        status: status,
+      };
+      const validationResult = validateObjectAgainstSchema(
+        statusObject,
+        WorkflowRunZodApiSchema
+      );
+      expect(validationResult.valid).toBe(true);
+    });
+  });
+
   it("should fail validation with an invalid status", () => {
     const invalidStatusObject = {
       ...validWorkflowRunObject,
-      status: "processing", // Invalid status
+      status: "invalid_status", // Invalid status
     };
     const validationResult = validateObjectAgainstSchema(
       invalidStatusObject,

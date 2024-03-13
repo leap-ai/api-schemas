@@ -46,8 +46,8 @@ describe("BulkRunZodSchema validation", () => {
     expect(validationResult.valid).toBe(false);
   });
 
-  it("should validate correctly that status is one of 'completed', 'running', 'failed'", () => {
-    const statuses = ["completed", "running", "failed"];
+  it("should validate correctly that status is one of 'completed', 'running', 'failed', 'queued', 'cancelled'", () => {
+    const statuses = ["completed", "running", "failed", "queued", "cancelled"];
     statuses.forEach((status) => {
       const statusObject = {
         ...validObject,
@@ -61,7 +61,7 @@ describe("BulkRunZodSchema validation", () => {
     });
   });
 
-  it("should fail validation if status is not one of 'completed', 'running', 'failed'", () => {
+  it("should fail validation if status is not one of 'completed', 'running', 'failed', 'queued', 'cancelled'", () => {
     const invalidStatusObject = {
       ...validObject,
       status: "invalid_status", // Not a valid status

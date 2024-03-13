@@ -9,7 +9,7 @@ export const WorkflowRunZodApiSchema = z.object({
       RegexForIds.workflowPublishedRunsId.errorMessage
     ),
   version_id: z.string(),
-  status: z.enum(["completed", "running", "failed"]),
+  status: z.enum(["completed", "running", "failed", "queued", "cancelled"]),
   created_at: z.string(),
   started_at: z.string().nullable(),
   ended_at: z.string().nullable(),
