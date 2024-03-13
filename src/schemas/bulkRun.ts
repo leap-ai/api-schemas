@@ -8,7 +8,7 @@ export const BulkRunZodApiSchema = z.object({
   created_at: z.string(),
   version_id: z.string(),
   workflow_id: z.string(),
-  status: z.enum(["completed", "running", "failed"]),
+  status: z.enum(["completed", "running", "failed", "queued", "cancelled"]),
   input_csv_url: z.string().url(),
   output_csv_url: z.string().url().nullable(),
   error: z.string().nullable(),
