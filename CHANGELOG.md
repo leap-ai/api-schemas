@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/leap-ai/api-schemas/compare/v1.0.6...v1.1.0) (2024-03-14)
+
+
+### Features
+
+* add ended_at to bulk_run ([053a254](https://github.com/leap-ai/api-schemas/commit/053a254240fe83cfd0ba1d003387b6bc3f1e64c3))
+
 ## [1.0.6](https://github.com/leap-ai/api-schemas/compare/v1.0.5...v1.0.6) (2024-03-13)
 
 
