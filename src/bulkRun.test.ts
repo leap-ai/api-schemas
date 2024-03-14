@@ -5,6 +5,7 @@ describe("BulkRunZodSchema validation", () => {
   const validObject: BulkRunApiType = {
     id: "bulk_hdZB4xJAjDxDtjo8MaVmUDi3",
     created_at: "2021-01-01",
+    ended_at: "2021-01-02",
     version_id: "456",
     workflow_id: "789",
     status: "completed",

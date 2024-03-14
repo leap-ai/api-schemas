@@ -6,6 +6,7 @@ export const BulkRunZodApiSchema = z.object({
     .string()
     .regex(RegexForIds.bulkRunId.regex, RegexForIds.bulkRunId.errorMessage),
   created_at: z.string(),
+  ended_at: z.string().nullable(),
   version_id: z.string(),
   workflow_id: z.string(),
   status: z.enum(["completed", "running", "failed", "queued", "cancelled"]),
